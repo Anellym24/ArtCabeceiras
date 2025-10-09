@@ -1,0 +1,1216 @@
+/* ========================================= */
+/* 1. FONTES E VARIÁVEIS GLOBAIS             */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+  /* --- Paleta de Cores --- */
+  --cor-fundo: #ffffff;
+  --cor-fundo-card: #1A1A1A;
+  --cor-borda: rgba(255, 255, 255, 0.1);
+  --cor-texto-principal: #EAEAEA;
+  --cor-texto-secundario: #888888;
+  --cor-neon-azul: #00BFFF;
+  --sombra-neon-azul: 0 0 15px rgba(0, 191, 255, 0.5);
+
+  /* --- Tipografia --- */
+  --fonte-principal: 'Space Grotesk', sans-serif;
+}
+
+/* ========================================= */
+/* 2. ESTILOS GLOBAIS E RESETS               */
+/* ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  line-height: 1.7;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========================================= */
+/* 3. CABEÇALHO E NAVEGAÇÃO                  */
+/* ========================================= */
+.container-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.container-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-neon-azul);
+  color: var(--cor-fundo);
+  font-weight: 700;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+}
+
+.titulo-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.texto-logo {
+  font-size: .9rem;
+  color: var(--cor-texto-secundario);
+}
+
+.menu a {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  color: var(--cor-neon-azul);
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.7);
+}
+
+/* ========================================= */
+/* 4. BANNER DE APRESENTAÇÃO                 */
+/* ========================================= */
+.banner-apresentacao {
+  position: relative;
+  margin-top: 3rem;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.slide {
+  height: 60vh;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.banner-sobreposicao {
+  background: linear-gradient(180deg, transparent, rgba(10, 10, 10, 0.8));
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner-conteudo {
+  padding: 3rem;
+  max-width: 780px;
+}
+
+.banner-conteudo h1,
+.banner-conteudo h2 {
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  color: #fff;
+}
+
+.banner-conteudo p {
+  font-size: 1.1rem;
+  color: var(--cor-texto-principal);
+  opacity: 0.9;
+}
+
+/* ========================================= */
+/* 5. SEÇÕES DE CONTEÚDO (INTRO, SOBRE)      */
+/* ========================================= */
+h2 {
+  background: linear-gradient(to right, #08444e, #039696);
+ color: transparent;
+-webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text; /* ESSENCIAL */
+background-clip: text;
+  font-size: 4em;
+  font-weight: bold;
+
+}
+.intro, .campo-cards, .programacao {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.intro h2, .campo-cards h2, .programacao h2 {
+  font-size: 2.5rem;
+  color: var(--cor-texto-principal);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.intro h2::after, .campo-cards h2::after, .programacao h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--cor-neon-azul);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+    box-shadow: var(--sombra-neon-azul);
+}
+
+.intro p, .campo-cards > p {
+  max-width: 800px;
+  margin: 2rem auto 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+}
+.campo-cards > p {
+    text-align: center;
+}
+
+/* ========================================= */
+/* 6. CARDS (EVENTOS, PALESTRANTES, ETC.)    */
+/* ========================================= */
+
+/* ========================================= */
+/* 7. SEÇÃO DE PROGRAMAÇÃO E FILTROS         */
+/* ========================================= */
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.filtros button {
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-secundario);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 1rem;
+  font-family: var(--fonte-principal);
+}
+
+.filtros button:hover {
+    border-color: var(--cor-texto-principal);
+    color: var(--cor-texto-principal);
+}
+
+.filtros button.active {
+  background: var(--cor-neon-azul);
+  color: var(--cor-fundo);
+  border-color: var(--cor-neon-azul);
+  font-weight: 700;
+}
+
+/* ========================================= */
+/* 8. MODAIS                                 */
+/* ========================================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.7);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+
+.modal-content, .modal-card {
+  background: #111;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  animation: fadeIn 0.4s cubic-bezier(.2, .9, .2, 1);
+  position: relative;
+  border: 1px solid var(--cor-borda);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.btn-fechar, .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--cor-texto-secundario);
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+.btn-fechar:hover, .close:hover {
+    color: var(--cor-texto-principal);
+}
+
+.modal-cabecalho h3, .modal-content h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--cor-neon-azul);
+}
+
+.modal-corpo {
+    text-align: center;
+}
+.modal-corpo img {
+  max-width: 100%;
+  height: auto;
+  max-height: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from { transform: translateY(-30px) scale(0.95); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ========================================= */
+/* 9. RODAPÉ (FOOTER)                        */
+/* ========================================= */
+.footer {
+  background: var(--cor-fundo);
+  border-top: 1px solid var(--cor-borda);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.Titulo {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.patrocinadores-master {
+    margin-bottom: 4rem;
+}
+
+.patrocinadores-master img {
+  max-height: 50px;
+  filter: brightness(0) invert(1) opacity(0.8);
+  transition: filter 0.3s ease;
+}
+.patrocinadores-master img:hover {
+  filter: brightness(0) invert(1) opacity(1);
+}
+
+.logos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem 4rem;
+    padding: 2rem 0;
+}
+
+.logos-grid .logos img {
+  max-height: 40px;
+  width: auto;
+  filter: grayscale(100%) invert(1) opacity(0.5);
+  transition: all 0.3s ease;
+}
+
+.logos-grid .logos a:hover img {
+  filter: grayscale(100%) invert(1) opacity(1);
+  transform: scale(1.1);
+}
+
+.social-icons {
+  margin: 3rem 0 2rem;
+}
+
+.social-icons a {
+  color: var(--cor-texto-secundario);
+  font-size: 24px;
+  margin: 0 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--cor-neon-azul);
+  transform: scale(1.2);
+}
+
+.footer p, .footer a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+}
+.footer a:hover {
+    color: var(--cor-neon-azul);
+}
+
+/* ========================================= */
+/* 10. ESTILOS PARA CADASTRO.HTML            */
+/* ========================================= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0;
+}
+
+.menu li a {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu li a:hover,
+.menu li a:focus-visible {
+  color: var(--cor-neon-azul);
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.7);
+}
+
+.titulo {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.titulo h1 {
+  font-size: 2.5rem;
+  color: var(--cor-texto-principal);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.titulo h1::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--cor-neon-azul);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+  box-shadow: var(--sombra-neon-azul);
+}
+
+.grupo {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  margin-bottom: 3rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box label {
+  color: var(--cor-texto-principal);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.input-box input {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-principal);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: var(--cor-neon-azul);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+  outline: none;
+}
+
+.linha-dupla {
+  display: flex;
+  gap: 1rem;
+}
+
+.linha-dupla .input-box {
+  flex: 1;
+}
+
+.genero-box {
+  margin-top: 1rem;
+}
+
+.radio-opcao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.radio-opcao input[type="radio"] {
+  accent-color: var(--cor-neon-azul);
+}
+
+.radio-opcao label {
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+}
+
+.input-box input[type="submit"],
+.input-box input[type="reset"],
+.input-box input[type="button"] {
+  background: var(--cor-neon-azul);
+  color: var(--cor-fundo);
+  border: 1px solid var(--cor-neon-azul);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 1rem;
+}
+
+.input-box input[type="submit"]:hover,
+.input-box input[type="reset"]:hover,
+.input-box input[type="button"]:hover {
+  background: transparent;
+  color: var(--cor-neon-azul);
+  box-shadow: var(--sombra-neon-azul);
+}
+
+/* ========================================= */
+/* 12. BOTÃO VOLTAR AO TOPO                  */
+/* ========================================= */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background: var(--cor-neon-azul);
+  color: var(--cor-fundo);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--sombra-neon-azul);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+#back-to-top:hover {
+  background: transparent;
+  color: var(--cor-neon-azul);
+  transform: scale(1.1);
+}
+
+/* ========================================= */
+/* 13. MEDIA QUERIES (RESPONSIVIDADE)        */
+/* ========================================= */
+@media (max-width: 768px) {
+  .container-cabecalho {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .menu a {
+      margin: 0 1rem;
+  }
+  .header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .menu li a {
+      margin: 0 1rem;
+  }
+  .titulo {
+    padding: 2rem 0;
+  }
+  .titulo h1 {
+    font-size: 2rem;
+  }
+  .linha-dupla {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .intro, .campo-cards, .programacao {
+    padding: 4rem 0;
+  }
+  .intro h2, .campo-cards h2, .programacao h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .banner-apresentacao, .slide {
+    height: 50vh;
+  }
+  .banner-conteudo {
+      padding: 2rem;
+  }
+  .banner-conteudo h1, .banner-conteudo h2 {
+    font-size: 1.8rem;
+  }
+  .intro p, .campo-cards > p {
+      font-size: 1rem;
+      text-align: left;
+      text-indent: 0;
+  }
+  .titulo h1 {
+    font-size: 1.8rem;
+  }
+  .grupo {
+    padding: 1rem;
+  }
+}
+  
+            
+
+            /* Container */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            /* Cabeçalho */
+            .container-cabecalho {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            .container-logo {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .logo {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: #0b1220;
+                font-weight: 800;
+                border-radius: 10px;
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, #6ee7b7, #60a5fa);
+            }
+
+            .titulo-logo {
+                font-size: 1.25rem;
+                font-weight: 800;
+                color: black;
+            }
+
+            .texto-logo {
+                font-size: .85rem;
+                color: #9fc3ff;
+            }
+
+            /* Menu de navegação */
+            .menu a {
+                color: rgba(0, 0, 0, 0.85);
+                text-decoration: none;
+                font-weight: 600;
+                margin-left: 18px;
+            }
+
+            .menu a:hover {
+                
+                color: rgba(255, 255, 255, 0.85);
+                 background: linear-gradient(135deg, #0b5970, #0188a0);
+                 padding: 10px;
+                border-radius: 20px;
+            }
+
+            /* Banner de aprensentação */
+            .banner-apresentacao {
+                position: relative;
+                margin-top: 18px;
+                box-shadow: 0 10px 30px rgb(2, 6, 23, .7);
+                border-radius: 14px;
+                overflow: hidden;
+            }
+
+            .banners-deslizantes {
+                display: flex;
+                width: 300%;
+
+                transition: transform .8s cubic-bezier(.2, .9, .2, 1);
+                /* Cubic-bezier - função que definie a curva cúbica de Bezier. Definida por 4 pontos - P0, P1, P2 e P3, início e fim da curva. Exemplo.: P0 é (0, 0) que representa tempo inicial e o estado inicial, e P3 é (1, 1) tempo final e estado final. Pode ser usada como função de cronometragem de animação e o tempo de transição de propriedade. Sintaxe.: cubic-bezier(x1,y1,x2,y2) que devem ser números de 0 a 1 (https://pt.stackoverflow.com/questions/346701/como-funciona-o-cubic-bezier-em-anima%C3%A7%C3%B5es-com-css). */
+            }
+
+            .slide {
+                min-width: 100%;
+                height: 56vh;
+                position: relative;
+            }
+        
+            .slide > div, img {
+                width: 100vw;
+                height: 60vh;
+            }
+
+            .banner-sobreposicao {
+                background: linear-gradient(180deg, rgba(2, 6, 23, .08), rgba(2, 6, 23, .2));
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .banner-conteudo {
+                padding: 48px;
+                max-width: 780px;
+            }
+
+            .banner-conteudo h1 {
+                margin-bottom: 12px;
+                line-height: 1.02;
+                font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+                /* função usada para definir um valor de ajuste responsivamente entre um mínimo e um máximo dependendo da janela de visualização. Sintaxe.: clmap(min, val, max), valor mínimo, valor preferido e valor máximo. Caso o valor preferido seja menor que o mínimo ou o superior ao máximo, utiliza-se o preferido. (https://www.w3schools.com/cssref/func_clamp.php e https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) */
+            }
+
+            .banner-conteudo p {
+                margin-bottom: 12px;
+                color: rgba(230, 238, 248, .9);
+            }
+
+            /* Indicadores do Banner */
+            .pontos {
+                display: flex;
+                position: absolute;
+                right: 18px;
+                bottom: 18px;
+                gap: 8px;
+            }
+
+            .ponto {
+                background-color: rgba( 255, 255, 255, .25 );
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            .ponto.ativo {
+                background-image: linear-gradient( 90deg, #60a5fa, #7c3aed );
+            }
+
+            /* Eventos (campo dos cards) */
+            .campo-cards {
+                margin-top: 30px;
+            }
+
+            .campo-cards h2 {
+                text-align: center;
+                font-size: 30px;
+            }
+
+            .campo-cards p {
+                max-width: 900px;
+                margin-top: 40px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 40px;
+                color: #9ec6ff;
+                text-indent: 50px;
+                line-height: 1.6;
+                letter-spacing: 1.6px;
+                word-spacing: 5px;
+                text-align: justify;
+                font-size: 22px;
+            }
+
+            /* Cards */
+            .cards {
+                display: grid;
+                grid-template-columns: repeat( auto-fit, minmax( 260px, 1fr ) );
+                gap: 20px;
+            }
+
+            /* Cada Card */
+            .card {
+                background: linear-gradient( 180deg, rgba( 255, 255, 255, .02 ), rgba( 255, 255, 255, .01 ) );
+                border-radius: 12px;
+                border: 1px solid rgba( 255, 255, 255, .04 );
+                box-shadow: 0 8px 24px rgba( 2, 6, 23, .6 );
+                transition: transform .25s ease, box-shadow .25s ease;
+            }
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 22px 44px rgba( 2, 6, 23, .7 );
+            }
+
+            .card img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                display: block;
+            }
+
+            /* Corpo card */
+            .corpo-card {
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .corpo-card h3 {
+                margin-bottom: 10px;
+                font-size: 18.9px;
+            }
+
+            .cards .card:nth-child(2) h3 {
+                font-size: 17.9px;
+            }
+
+            .corpo-card p {
+                font-size: 17px;
+                color: #eee;
+                text-align: center;
+                text-indent: 0;
+                word-break: break-all;
+                word-spacing: 6px;
+            }
+
+            .btn-descricao {
+                padding: 8px 12px;
+                border-radius: 10px;
+                border: 0;
+                font-weight: 700;
+                color: #081224;
+                background: linear-gradient( 90deg, #60a5fa, #7c3aed );
+                align-self: center;
+                cursor: pointer;
+            }
+
+            .btn-descricao:hover {
+                background: linear-gradient( 90deg, #7c3aed, #60a5fa );
+            }
+
+            /* Intro - Sobre */
+            .intro {
+                background: linear-gradient( 180deg, rgba( 255, 255, 255, .02 ), transparent );
+                padding: 28px;
+                margin-top: 40px;
+                border-radius: 12px;
+                text-align: center;
+            }
+
+            .intro h2 {
+                color: #cfe8ff;
+                margin-top: 20px;
+                margin-bottom: 40px;
+                text-align: center;
+                font-size: 30px;
+            }
+
+            .intro p {
+                margin-top: 20px;
+                padding-bottom: 40px;
+                text-indent: 50px;
+                line-height: 1.6;
+                word-spacing: 5px;
+                letter-spacing: 1.6px;
+                text-align: justify;
+                font-size: 20px;
+            }
+
+            section:last-child.intro {
+                margin-top: 80px;
+            }
+
+            /* Rodapé */
+            footer > h3 {
+                text-align: center;
+            }
+
+            /* Modal */
+            .modal {
+                position: fixed;
+                inset: 0;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient( 180deg, rgba( 2, 6, 23, .5 ), rgba( 2, 6, 23, .8 ) );
+                z-index: 60;
+            }
+
+            .modal.abrir {
+                display: flex;
+            }
+
+            .modal-card {
+                width: min( 900px, 100% ); /* A função "min()" em CSS é uma ferramenta poderosa para design responsivo, permitindo que você defina a largura (ou outras propriedades) de um elemento com o menor valor entre uma lista de opções fornecidas. Sintaxe.: min(valor1, valor2, ..., valuen), os valores fornecidos são avaliados aplicando o menor valor à largura do elemento permitindo a criação de layouts flexíveis que se adaptam a diferentes tamanhos de tela e restrições de conteúdo além de facilitar a responsividade. */
+                padding: 18px;
+                border: 1px solid rgba( 255, 255, 255, .05 );
+                box-shadow: 0 20px 60px rgba( 2, 6, 23, .8 );
+                border-radius: 14px;
+                background: linear-gradient( 180deg, #071124, #0b1220 );
+                color: #dbefff;
+            }
+
+            .modal-cabecalho {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 12px;
+            }
+
+            .modal-cabecalho div {
+                width: 100%;
+            }
+
+            .modal-cabecalho h3 {
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+             .btn-fechar {
+                cursor: pointer;
+                background-color: transparent;
+                border: 0;
+                color: #9fc3ff;
+                font-size: 1.4rem;
+                align-self: flex-start;
+            }
+
+            .modal-corpo {
+                display: grid;
+                grid-template-columns: 1fr 320px;
+            }
+
+            .modal-corpo img {
+                width: 100%;
+                height: 220px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            .modal-lado {
+                background: linear-gradient( 180deg, rgba( 255, 255, 255, .02 ), transparent );
+                padding: 12px;
+                border-radius: 8px;
+            }
+
+            .modal-lado p {
+                padding: 5px;
+                text-align: justify;
+                text-indent: 15px;
+                word-spacing: 4px;
+                word-break: break-all;
+                line-height: 1.6;
+            }
+
+            .modal-lado div {
+                width: 100%;
+            }
+
+            .modal-lado .btn-inscricao {
+                display: block;
+                margin: 50px auto 0;
+                padding: 8px 12px;
+                border-radius: 10px;
+                border: 0;
+                font-weight: 700;
+                color: #081224;
+                background: linear-gradient( 90deg, #60a5fa, #7c3aed );
+                align-self: center;
+                cursor: pointer;
+            }
+
+            /* Responsividade */
+            @media ( max-width: 1145px ) {
+                .cards {
+                    display: grid;
+                    grid-template-columns: 420px 420px;
+                    gap: 20px;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+                .intro p {
+                    text-align-last: center;
+                }
+
+                .campo-cards p {
+                    text-indent: 0;
+                    text-align: center;
+                }
+            }
+
+            @media ( max-width: 900px ) {
+                .banner-apresentacao {
+                    width: 100%;
+                    height: 45vh;
+                    margin: 0 auto;
+                }
+
+                .banner-sobreposicao {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    width: 100%;
+                    color: #dbe6f3dc;
+                }
+
+                .banner-conteudo {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 0 15px 10px 10px;
+                }
+
+                .banner-conteudo p {
+                    margin-right: 15px;
+                }
+
+                .slide:nth-child(1) .banner-conteudo {
+                    text-align: center;
+                }
+
+                .slide:nth-child(2) .banner-conteudo {
+                    text-align: center;
+                }
+
+                .slide > div, img {
+                    width: 100vw;
+                    height: 45vh;
+                }
+
+                .cards {
+                    display: grid;
+                    grid-template-columns: 400px;
+                    gap: 20px;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .pontos {
+                    bottom: 8px;
+                }
+
+                .campo-cards p {
+                    text-indent: 0;
+                    text-align-last: center;
+                }
+            }
+
+            @media ( max-width: 750px ) {
+                .modal-corpo {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    /* align-items: center; */
+                }
+
+                .modal-corpo img {
+                    display: block;
+                    width: 80%;
+                    height: 250px;
+                    margin: 0 auto 15px;
+                    text-align: center;
+                }
+
+                .modal-corpo .modal-lado {
+                    /* align-items: center; */
+                    margin-top: 25px;
+                    padding-top: 20px;
+                    width: 80%;
+                    margin: 0 auto;
+                }
+
+                .modal-corpo .modal-lado p {
+                    text-align-last: center;
+                    word-break: keep-all;
+                }
+
+                .modal-corpo .modal-lado .btn-inscricao {
+                    padding: 10px 14px;
+                }
+            }
+
+            @media ( max-width: 700px ) {
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .container-cabecalho {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 30px;
+                    margin-bottom: 25px;
+                }
+
+                .container-logo {
+                    width: 100%;
+                    justify-content: center;
+                }
+
+                .banner-apresentacao {
+                    width: 100%;
+                    height: 45vh;
+                    margin: 0 auto;
+                }
+
+                .banner-conteudo {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 0 15px 10px 10px;
+                }
+
+                .slide > div, img {
+                    width: 100vw;
+                    height: 45vh;
+                }
+
+                .banner-sobreposicao {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    width: 100%;
+                    color: #dbe6f3dc;
+                }
+
+                .campo-cards p {
+                    text-align: center;
+                }
+            }
+
+            @media ( max-width: 685px ) {
+                .banner-apresentacao {
+                    width: 100%;
+                    height: 35vh;
+                    margin: 0 auto;
+                }
+                
+                .slide > div, img {
+                    width: 100vw;
+                    height: 35vh;
+                }
+            }
+
+            @media ( max-width: 550px ) {
+                .banner-apresentacao {
+                    width: 100%;
+                    height: 30vh;
+                    margin: 0 auto;
+                }
+                
+                .slide > div, img {
+                    width: 100vw;
+                    height: 30vh;
+                }
+            }
+
+            .swiper-card {
+  background: #111827; /* Fundo escuro elegante */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.swiper-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.swiper-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.swiper-card p {
+  font-size: 1rem;
+  color: #9CA3AF; /* cinza suave */
+  margin-bottom: 15px;
+}
+
+.swiper-card button {
+  background: linear-gradient(90deg, #6366F1, #8B5CF6);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.swiper-card button:hover {
+  background: linear-gradient(90deg, #4F46E5, #7C3AED);
+}
+.h2palestrantes {
+  font-size: 2rem;
+  color:linear-gradient(90deg, #6366F1, #8B5CF6);
+  text-align: center;
+  margin-bottom: 20px;
+ 
+}
+.palestrantes {
+   margin-top: 200px;
+   margin-bottom: 200px;
+}
+
