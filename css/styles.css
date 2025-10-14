@@ -1,625 +1,174 @@
-/* ========================================= */
-/* 1. FONTES E VARIÁVEIS GLOBAIS             */
-/* ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
-
+/* 🎨 PALETA DE CORES E VARIÁVEIS */
+/* 🎨 PALETA DE CORES E VARIÁVEIS - TEMA ESCURO/NEON */
 :root {
-  /* --- Paleta de Cores --- */
-  --cor-fundo: #ffffff;
-  --cor-fundo-card: #1A1A1A;
-  --cor-borda: rgba(255, 255, 255, 0.1);
-  --cor-texto-principal: #EAEAEA;
-  --cor-texto-secundario: #888888;
-  --cor-neon-azul: #00BFFF;
-  --sombra-neon-azul: 0 0 15px rgba(0, 191, 255, 0.5);
-
-  /* --- Tipografia --- */
-  --fonte-principal: 'Space Grotesk', sans-serif;
+/* Fundos */
+--cor-fundo-body: #0b1220; /* Azul escuro quase preto */
+--cor-fundo-card: #141f32; /* Azul um pouco mais claro para cards */
+--cor-principal: #60a5fa; /* Azul Neon */
+--cor-secundaria: #7c3aed; /* Roxo Neon */
+ --cor-texto: #dbefff; /* Texto principal claro */
+--cor-texto-secundario: #9fc3ff; /* Texto secundário azul claro */
+--sombra-card: 0 4px 15px rgba(2, 6, 23, 0.6);
+--transicao: 0.3s ease;
 }
 
-/* ========================================= */
-/* 2. ESTILOS GLOBAIS E RESETS               */
-/* ========================================= */
+/* 🌍 CONFIGURAÇÃO GLOBAL */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: var(--fonte-principal);
-  line-height: 1.7;
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto-principal);
-  -webkit-font-smoothing: antialiased;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* 🏞️ BANNER PRINCIPAL */
+
+
 
 /* ========================================= */
-/* 3. CABEÇALHO E NAVEGAÇÃO                  */
+/* 6. CARDS (PALESTRANTES - LAYOUT CARROSSEL)*/
 /* ========================================= */
-.container-cabecalho {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--cor-borda);
+.cards-section {
+  padding: 80px 20px;
+  text-align: center;
 }
 
-.container-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.cards-section h2 {
+  font-size: 2.2rem;
+  color: var(--cor-principal);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.logo {
-  display: inline-flex;
-  align-items: center;
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
   justify-content: center;
-  background: var(--cor-neon-azul);
-  color: var(--cor-fundo);
-  font-weight: 700;
-  border-radius: 8px;
-  width: 48px;
-  height: 48px;
-  font-size: 1.2rem;
 }
 
-.titulo-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.texto-logo {
-  font-size: .9rem;
-  color: var(--cor-texto-secundario);
-}
-
-.menu a {
-  color: var(--cor-texto-secundario);
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 2rem;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.menu a:hover,
-.menu a:focus-visible {
-  color: var(--cor-neon-azul);
-  text-shadow: 0 0 8px rgba(0, 191, 255, 0.7);
-}
-
-/* ========================================= */
-/* 4. BANNER DE APRESENTAÇÃO                 */
-/* ========================================= */
-.banner-apresentacao {
-  position: relative;
-  margin-top: 3rem;
-  border-radius: 16px;
+.card {
+  background: var(--cor-card);
+  border-radius: 20px;
+  box-shadow: var(--sombra-card);
+  transition: transform var(--transicao), box-shadow var(--transicao);
   overflow: hidden;
 }
 
-.slide {
-  height: 60vh;
-  position: relative;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
 }
 
-.slide img {
+.card img {
   width: 100%;
-  height: 100%;
+  height: 280px;
   object-fit: cover;
-  filter: brightness(0.6);
 }
 
-.banner-sobreposicao {
-  background: linear-gradient(180deg, transparent, rgba(10, 10, 10, 0.8));
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
+.card h3 {
+  font-size: 1.3rem;
+  color: var(--cor-principal);
+  margin: 15px 0 5px;
 }
 
-.banner-conteudo {
-  padding: 3rem;
-  max-width: 780px;
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
 }
 
-.banner-conteudo h1,
-.banner-conteudo h2 {
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-  color: #fff;
-}
-
-.banner-conteudo p {
-  font-size: 1.1rem;
-  color: var(--cor-texto-principal);
-  opacity: 0.9;
-}
-
-/* ========================================= */
-/* 5. SEÇÕES DE CONTEÚDO (INTRO, SOBRE)      */
-/* ========================================= */
-h2 {
-  background: linear-gradient(to right, #08444e, #039696);
- color: transparent;
--webkit-text-fill-color: transparent; 
-  -webkit-background-clip: text; /* ESSENCIAL */
-background-clip: text;
-  font-size: 4em;
-  font-weight: bold;
-
-}
-.intro, .campo-cards, .programacao {
-  padding: 6rem 0;
-  text-align: center;
-}
-
-.intro h2, .campo-cards h2, .programacao h2 {
-  font-size: 2.5rem;
-  color: var(--cor-texto-principal);
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
-.intro h2::after, .campo-cards h2::after, .programacao h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--cor-neon-azul);
-    margin: 1rem auto 0;
-    border-radius: 2px;
-    box-shadow: var(--sombra-neon-azul);
-}
-
-.intro p, .campo-cards > p {
-  max-width: 800px;
-  margin: 2rem auto 0;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  text-align: justify;
-}
-.campo-cards > p {
-    text-align: center;
-}
-
-/* ========================================= */
-/* 6. CARDS (EVENTOS, PALESTRANTES, ETC.)    */
-/* ========================================= */
-
-/* ========================================= */
-/* 7. SEÇÃO DE PROGRAMAÇÃO E FILTROS         */
-/* ========================================= */
-.filtros {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 3rem;
-}
-
-.filtros button {
-  background: transparent;
-  border: 1px solid var(--cor-borda);
-  color: var(--cor-texto-secundario);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+.card button {
+  background: var(--cor-principal);
+  color: var(--cor-texto-claro);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  font-size: 1rem;
-  font-family: var(--fonte-principal);
+  transition: background var(--transicao);
+  margin-bottom: 20px;
 }
 
-.filtros button:hover {
-    border-color: var(--cor-texto-principal);
-    color: var(--cor-texto-principal);
+.card button:hover {
+  background: var(--cor-secundaria);
 }
-
-.filtros button.active {
-  background: var(--cor-neon-azul);
-  color: var(--cor-fundo);
-  border-color: var(--cor-neon-azul);
-  font-weight: 700;
-}
-
-/* ========================================= */
-/* 8. MODAIS                                 */
-/* ========================================= */
+/* 🪩 MODAL */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
   inset: 0;
-  background-color: rgba(10, 10, 10, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(8px);
+  z-index: 1000;
 }
 
-.modal-content, .modal-card {
-  background: #111;
-  padding: 2rem;
-  width: 90%;
-  max-width: 600px;
-  border-radius: 16px;
-  animation: fadeIn 0.4s cubic-bezier(.2, .9, .2, 1);
+.modal.ativo {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  text-align: center;
   position: relative;
-  border: 1px solid var(--cor-borda);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
 
-.btn-fechar, .close {
+.modal-content h3 {
+  color: var(--cor-principal);
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.fechar {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 1.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: var(--cor-texto-secundario);
-  background: none;
-  border: none;
-  transition: color 0.3s ease;
-}
-.btn-fechar:hover, .close:hover {
-    color: var(--cor-texto-principal);
-}
-
-.modal-cabecalho h3, .modal-content h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  color: var(--cor-neon-azul);
-}
-
-.modal-corpo {
-    text-align: center;
-}
-.modal-corpo img {
-  max-width: 100%;
-  height: auto;
-  max-height: 250px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-bottom: 1.5rem;
-}
-
-@keyframes fadeIn {
-  from { transform: translateY(-30px) scale(0.95); opacity: 0; }
-  to { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-/* ========================================= */
-/* 9. RODAPÉ (FOOTER)                        */
-/* ========================================= */
-.footer {
-  background: var(--cor-fundo);
-  border-top: 1px solid var(--cor-borda);
-  padding: 4rem 0;
-  text-align: center;
-}
-
-.Titulo {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: var(--cor-texto-secundario);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.patrocinadores-master {
-    margin-bottom: 4rem;
-}
-
-.patrocinadores-master img {
-  max-height: 50px;
-  filter: brightness(0) invert(1) opacity(0.8);
-  transition: filter 0.3s ease;
-}
-.patrocinadores-master img:hover {
-  filter: brightness(0) invert(1) opacity(1);
-}
-
-.logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem 4rem;
-    padding: 2rem 0;
-}
-
-.logos-grid .logos img {
-  max-height: 40px;
-  width: auto;
-  filter: grayscale(100%) invert(1) opacity(0.5);
-  transition: all 0.3s ease;
-}
-
-.logos-grid .logos a:hover img {
-  filter: grayscale(100%) invert(1) opacity(1);
-  transform: scale(1.1);
-}
-
-.social-icons {
-  margin: 3rem 0 2rem;
-}
-
-.social-icons a {
-  color: var(--cor-texto-secundario);
-  font-size: 24px;
-  margin: 0 1rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.social-icons a:hover {
-  color: var(--cor-neon-azul);
-  transform: scale(1.2);
-}
-
-.footer p, .footer a {
-    color: var(--cor-texto-secundario);
-    text-decoration: none;
-}
-.footer a:hover {
-    color: var(--cor-neon-azul);
-}
-
-/* ========================================= */
-/* 10. ESTILOS PARA CADASTRO.HTML            */
-/* ========================================= */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--cor-borda);
-}
-
-.menu ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  margin: 0;
-}
-
-.menu li a {
-  color: var(--cor-texto-secundario);
-  text-decoration: none;
-  font-weight: 500;
-  margin-left: 2rem;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.menu li a:hover,
-.menu li a:focus-visible {
-  color: var(--cor-neon-azul);
-  text-shadow: 0 0 8px rgba(0, 191, 255, 0.7);
-}
-
-.titulo {
-  text-align: center;
-  padding: 3rem 0;
-}
-
-.titulo h1 {
-  font-size: 2.5rem;
-  color: var(--cor-texto-principal);
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
-.titulo h1::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: var(--cor-neon-azul);
-  margin: 1rem auto 0;
-  border-radius: 2px;
-  box-shadow: var(--sombra-neon-azul);
-}
-
-.grupo {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: var(--cor-fundo-card);
-  border: 1px solid var(--cor-borda);
-  border-radius: 16px;
-  margin-bottom: 3rem;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.input-box {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-box label {
-  color: var(--cor-texto-principal);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.input-box input {
-  background: var(--cor-fundo);
-  border: 1px solid var(--cor-borda);
-  border-radius: 8px;
-  padding: 0.75rem;
-  color: var(--cor-texto-principal);
-  font-family: var(--fonte-principal);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input-box input:focus {
-  border-color: var(--cor-neon-azul);
-  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
-  outline: none;
-}
-
-.linha-dupla {
-  display: flex;
-  gap: 1rem;
-}
-
-.linha-dupla .input-box {
-  flex: 1;
-}
-
-.genero-box {
-  margin-top: 1rem;
-}
-
-.radio-opcao {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.radio-opcao input[type="radio"] {
-  accent-color: var(--cor-neon-azul);
-}
-
-.radio-opcao label {
-  color: var(--cor-texto-secundario);
+  font-size: 1.3rem;
+  color: var(--cor-principal);
   cursor: pointer;
 }
 
-.input-box input[type="submit"],
-.input-box input[type="reset"],
-.input-box input[type="button"] {
-  background: var(--cor-neon-azul);
-  color: var(--cor-fundo);
-  border: 1px solid var(--cor-neon-azul);
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 1rem;
-}
-
-.input-box input[type="submit"]:hover,
-.input-box input[type="reset"]:hover,
-.input-box input[type="button"]:hover {
-  background: transparent;
-  color: var(--cor-neon-azul);
-  box-shadow: var(--sombra-neon-azul);
-}
-
-/* ========================================= */
-/* 12. BOTÃO VOLTAR AO TOPO                  */
-/* ========================================= */
-#back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  background: var(--cor-neon-azul);
-  color: var(--cor-fundo);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: var(--sombra-neon-azul);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
-}
-
-#back-to-top:hover {
-  background: transparent;
-  color: var(--cor-neon-azul);
-  transform: scale(1.1);
-}
-
-/* ========================================= */
-/* 13. MEDIA QUERIES (RESPONSIVIDADE)        */
-/* ========================================= */
+/* 📱 RESPONSIVIDADE */
 @media (max-width: 768px) {
-  .container-cabecalho {
-    flex-direction: column;
-    gap: 1.5rem;
+  .banner h1 {
+    font-size: 2.2rem;
   }
-  .menu a {
-      margin: 0 1rem;
+
+  .banner p {
+    font-size: 1rem;
   }
-  .header {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  .menu li a {
-      margin: 0 1rem;
-  }
-  .titulo {
-    padding: 2rem 0;
-  }
-  .titulo h1 {
-    font-size: 2rem;
-  }
-  .linha-dupla {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .intro, .campo-cards, .programacao {
-    padding: 4rem 0;
-  }
-  .intro h2, .campo-cards h2, .programacao h2 {
-    font-size: 2rem;
+
+  .cards-section {
+    padding: 60px 15px;
   }
 }
 
-@media (max-width: 600px) {
-  .banner-apresentacao, .slide {
-    height: 50vh;
+@media (max-width: 480px) {
+  .banner {
+    height: 60vh;
   }
-  .banner-conteudo {
-      padding: 2rem;
-  }
-  .banner-conteudo h1, .banner-conteudo h2 {
-    font-size: 1.8rem;
-  }
-  .intro p, .campo-cards > p {
-      font-size: 1rem;
-      text-align: left;
-      text-indent: 0;
-  }
-  .titulo h1 {
-    font-size: 1.8rem;
-  }
-  .grupo {
-    padding: 1rem;
+
+  .card img {
+    height: 220px;
   }
 }
-  
-            
 
-            /* Container */
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 20px;
-            }
 
             /* Cabeçalho */
             .container-cabecalho {
@@ -650,7 +199,6 @@ background-clip: text;
             .titulo-logo {
                 font-size: 1.25rem;
                 font-weight: 800;
-                color: black;
             }
 
             .texto-logo {
@@ -658,22 +206,7 @@ background-clip: text;
                 color: #9fc3ff;
             }
 
-            /* Menu de navegação */
-            .menu a {
-                color: rgba(0, 0, 0, 0.85);
-                text-decoration: none;
-                font-weight: 600;
-                margin-left: 18px;
-            }
-
-            .menu a:hover {
-                
-                color: rgba(255, 255, 255, 0.85);
-                 background: linear-gradient(135deg, #0b5970, #0188a0);
-                 padding: 10px;
-                border-radius: 20px;
-            }
-
+          
             /* Banner de aprensentação */
             .banner-apresentacao {
                 position: relative;
@@ -702,30 +235,6 @@ background-clip: text;
                 height: 60vh;
             }
 
-            .banner-sobreposicao {
-                background: linear-gradient(180deg, rgba(2, 6, 23, .08), rgba(2, 6, 23, .2));
-                position: absolute;
-                inset: 0;
-                display: flex;
-                align-items: center;
-            }
-
-            .banner-conteudo {
-                padding: 48px;
-                max-width: 780px;
-            }
-
-            .banner-conteudo h1 {
-                margin-bottom: 12px;
-                line-height: 1.02;
-                font-size: clamp(1.6rem, 3.2vw, 2.6rem);
-                /* função usada para definir um valor de ajuste responsivamente entre um mínimo e um máximo dependendo da janela de visualização. Sintaxe.: clmap(min, val, max), valor mínimo, valor preferido e valor máximo. Caso o valor preferido seja menor que o mínimo ou o superior ao máximo, utiliza-se o preferido. (https://www.w3schools.com/cssref/func_clamp.php e https://developer.mozilla.org/en-US/docs/Web/CSS/clamp) */
-            }
-
-            .banner-conteudo p {
-                margin-bottom: 12px;
-                color: rgba(230, 238, 248, .9);
-            }
 
             /* Indicadores do Banner */
             .pontos {
@@ -992,30 +501,7 @@ background-clip: text;
                 }
             }
 
-            @media ( max-width: 900px ) {
-                .banner-apresentacao {
-                    width: 100%;
-                    height: 45vh;
-                    margin: 0 auto;
-                }
-
-                .banner-sobreposicao {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    width: 100%;
-                    color: #dbe6f3dc;
-                }
-
-                .banner-conteudo {
-                    width: 100%;
-                    padding: 10px;
-                    margin: 0 15px 10px 10px;
-                }
-
-                .banner-conteudo p {
-                    margin-right: 15px;
-                }
+           
 
                 .slide:nth-child(1) .banner-conteudo {
                     text-align: center;
@@ -1046,7 +532,7 @@ background-clip: text;
                     text-indent: 0;
                     text-align-last: center;
                 }
-            }
+            
 
             @media ( max-width: 750px ) {
                 .modal-corpo {
@@ -1116,6 +602,11 @@ background-clip: text;
                     width: 100vw;
                     height: 45vh;
                 }
+                .banner-imagem {
+                    object-fit: cover;
+                    padding: 100%;
+                    margin: 0;
+                }
 
                 .banner-sobreposicao {
                     display: flex;
@@ -1155,62 +646,101 @@ background-clip: text;
                     height: 30vh;
                 }
             }
+            * ESTILOS PARA O CARROSSEL SWIPER */
+* ESTILOS PARA O CARROSSEL SWIPER */.mySwiper {
 
-            .swiper-card {
-  background: #111827; /* Fundo escuro elegante */
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+width: 90%; 
 
-.swiper-card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
+max-width: 1200px;
 
-.swiper-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-}
+margin: 0 auto;
 
-.swiper-card h3 {
-  font-size: 1.3rem;
-  color: #fff;
-  margin-bottom: 5px;
-}
+padding: 20px 0;
 
-.swiper-card p {
-  font-size: 1rem;
-  color: #9CA3AF; /* cinza suave */
-  margin-bottom: 15px;
-}
+}/* Estilo do Card individual (Dark/Neon) */.card.swiper-card {
 
-.swiper-card button {
-  background: linear-gradient(90deg, #6366F1, #8B5CF6);
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+background: var(--cor-fundo-card); 
+border: 1px solid rgba(124, 58, 237, 0.2); 
+border-radius: 12px;
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+padding: 25px 20px 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 400px; 
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-.swiper-card button:hover {
-  background: linear-gradient(90deg, #4F46E5, #7C3AED);
-}
-.h2palestrantes {
-  font-size: 2rem;
-  color:linear-gradient(90deg, #6366F1, #8B5CF6);
-  text-align: center;
-  margin-bottom: 20px;
- 
-}
-.palestrantes {
-   margin-top: 200px;
-   margin-bottom: 200px;
-}
+}.card.swiper-card:hover {
 
+transform: scale(1.03);
+box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+
+}/* Imagem do Palestrante (Circular) */.card.swiper-card img {
+
+width: 150px; 
+
+height: 150px;
+
+border-radius: 50%; 
+
+object-fit: cover;
+
+margin-bottom: 20px;
+
+border: 3px solid var(--cor-principal); 
+
+}.card.swiper-card h3 {
+
+color: var(--cor-principal); 
+
+margin: 15px 0 5px;
+
+font-size: 1.3rem;
+
+}.card.swiper-card p {
+
+color: var(--cor-texto-secundario); 
+
+margin-bottom: 20px;
+
+font-size: 0.95rem;
+
+}/* Botão "Ver mais" */.card.swiper-card button {
+
+background: linear-gradient(90deg, var(--cor-principal), var(--cor-secundaria));
+
+color: var(--cor-texto);
+
+border: none;
+
+padding: 10px 20px;
+
+border-radius: 25px;
+
+font-size: 0.95rem;
+
+cursor: pointer;
+
+transition: background 0.3s ease;
+
+margin-top: auto; /* Empurra o botão para baixo */
+
+}.card.swiper-card button:hover {
+
+opacity: 0.9;
+
+box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
+
+}/* Estilo dos elementos de navegação do Swiper */.swiper-button-next, .swiper-button-prev {
+
+color: var(--cor-principal) !important;
+
+/* Ajuste de tamanho para mobile, se necessário */
+
+transform: scale(0.8);
+
+}.swiper-pagination-bullet-active {
+
+background: var(--cor-principal) !important; 
+
+}

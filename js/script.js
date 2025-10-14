@@ -1,4 +1,4 @@
-    // Slides e os pontos (marcadores dos slides)
+       // Slides e os pontos (marcadores dos slides)
             const slidesEl = document.getElementById( 'slides' );
             const pontosEl = document.getElementById( 'pontos' );
             const totalSlides = slidesEl.children.length; // 3 elmentos
@@ -108,49 +108,41 @@
             } );
 
 
-            function abrirModal(id) {
-  document.getElementById(id).style.display = 'flex';
-}
+       function abrirModal(id) {
+      document.getElementById(id).classList.add('ativo');
+    }
 
-function fecharModal(id) {
-  document.getElementById(id).style.display = 'none';
+    function fecharModal(id) {
+      document.getElementById(id).classList.remove('ativo');
+    }
+var swiper = new Swiper(".mySwiper", {
+ slidesPerView: 1, 
+spaceBetween: 30,
+loop: true,
+pagination: {
+el: ".swiper-pagination",
+clickable: true,
+},
+navigation: {
+  nextEl: ".swiper-button-next",
+prevEl: ".swiper-button-prev",
+},
+breakpoints: {
+// Tela > 768px: 2 slides
+768: {
+slidesPerView: 2,
+spaceBetween: 20,
+},
+// Tela > 1024px: 3 slides
+1024: {
+slidesPerView: 3,
+spaceBetween: 30,
+},
 }
-
-// Fechar ao clicar fora
-window.onclick = function(event) {
-  if (event.target.classList.contains('modal')) {
-    event.target.style.display = 'none';
-  }
-}
-
-// Fechar com ESC
-document.addEventListener('keydown', function(event) {
-  if (event.key === "Escape") {
-    document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
-  }
 });
 
+ 
 
-const swiper = new Swiper('.swiper', {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  loop: true,
-
-  breakpoints: {
-    640: { slidesPerView: 2, spaceBetween: 30 },
-    1024: { slidesPerView: 3, spaceBetween: 40 }
-  },
-
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
 
 
  
