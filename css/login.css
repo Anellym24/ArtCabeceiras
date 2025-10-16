@@ -1,0 +1,96 @@
+:root {
+  /* 🎨 Paleta de cores inspirada na logo Art Cabeceiras RJ */
+  --cor-fundo: linear-gradient(102deg, #0f3b3a, #1a6865); /* Fundo verde-petróleo suave */
+  --cor-principal: #c7a45c; /* Dourado elegante */
+  --cor-secundaria: #e5c787; /* Dourado claro */
+  --cor-terciaria: #0f3b3a;
+  --cor-texto: #1c1c1c; /* Preto suave para textos */
+  --cor-texto-claro: #ffffff; /* Texto branco em fundos escuros */
+  --cor-card: #ffffff15; /* Fundo translúcido com leve brilho */
+  --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.25);
+  --transicao: 0.3s ease;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  overflow-x: hidden;
+}
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  z-index: 3;
+  background: transparent; 
+  align-items: center;
+  margin-right: 10px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: #0a2727;
+
+}
+
+.entrar {
+ background-color: var(--cor-principal);
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: var(--cor-texto-claro);
+  transition: all 0.3s ease;
+}
+
+/* efeito de hover só nesse botão */
+.entrar:hover {
+  background: #0a2727;
+  transform: scale(1.1);
+}
+.container {
+  display: flex;
+  justify-content: center; 
+  height: 100vh;
+border-radius: 20px;
+  background-color: white;
+  margin: 200px 200px 200px 200px;
+ 
+}
+.container h1 {
+      color: var(--cor-terciaria);
+margin: 30px 50px 10px 50px;
+  display: grid;
+justify-items: center;
+  line-height: 1;
+  white-space: nowrap; 
+  font-size: 1.8rem;
+
+}
+.container input{
+  display: block;
+  margin: 200px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+    
+
+}

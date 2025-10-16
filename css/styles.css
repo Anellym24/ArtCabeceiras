@@ -1,15 +1,21 @@
 /* 🎨 PALETA DE CORES E VARIÁVEIS */
-/* 🎨 PALETA DE CORES E VARIÁVEIS - TEMA ESCURO/NEON */
+@font-face {
+  font-family: 'Hanging';
+  src: url('../Fonte/Hanging.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
-/* Fundos */
---cor-fundo-body: #0b1220; /* Azul escuro quase preto */
---cor-fundo-card: #141f32; /* Azul um pouco mais claro para cards */
---cor-principal: #60a5fa; /* Azul Neon */
---cor-secundaria: #7c3aed; /* Roxo Neon */
- --cor-texto: #dbefff; /* Texto principal claro */
---cor-texto-secundario: #9fc3ff; /* Texto secundário azul claro */
---sombra-card: 0 4px 15px rgba(2, 6, 23, 0.6);
---transicao: 0.3s ease;
+  /* 🎨 Paleta de cores inspirada na logo Art Cabeceiras RJ */
+  --cor-fundo: linear-gradient(102deg, #0f3b3a, #1a6865); /* Fundo verde-petróleo suave */
+  --cor-principal: #c7a45c; /* Dourado elegante */
+  --cor-secundaria: #e5c787; /* Dourado claro */
+  --cor-terciaria: #0f3b3a;
+  --cor-texto: #1c1c1c; /* Preto suave para textos */
+  --cor-texto-claro: #ffffff; /* Texto branco em fundos escuros */
+  --cor-card: #ffffff15; /* Fundo translúcido com leve brilho */
+  --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.25);
+  --transicao: 0.3s ease;
 }
 
 /* 🌍 CONFIGURAÇÃO GLOBAL */
@@ -21,21 +27,154 @@
 }
 
 body {
-  background: var(--cor-fundo);
+  background: white;
   color: var(--cor-texto);
   overflow-x: hidden;
 }
 
-/* 🏞️ BANNER PRINCIPAL */
+/* 🧭 MENU DENTRO DO BANNER */
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 0;
+  z-index: 3;
+  background: transparent; 
+  align-items: center;
+  margin-right: 10px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: #0a2727;
+
+}
+
+.entrar {
+ background-color: var(--cor-principal);
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: var(--cor-texto-claro);
+  transition: all 0.3s ease;
+}
+
+/* efeito de hover só nesse botão */
+.entrar:hover {
+  background: #0a2727;
+  transform: scale(1.1);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: visible; /* 👈 ESSENCIAL */
+}
+
+/* Parte cursiva “Art” */
+.logo-art {
+ font-family: 'Hanging', sans-serif;
+  font-size: 10rem;
+  line-height: 1.2; /* Ajustável */
+padding-right: 15px;
+  display: inline-block;
+
+  background: linear-gradient(
+    1000deg,
+    #c7a45c 0%,
+    #e5c787 30%,
+    #fff5cc 50%,
+    #e5c787 70%,
+    #c7a45c 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilho 4s linear infinite;
+}
 
 
+/* Parte inferior “CABECEIRAS RJ” */
+.logo-texto {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.1rem;
+  color: var(--cor-secundaria);
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
 
-/* ========================================= */
-/* 6. CARDS (PALESTRANTES - LAYOUT CARROSSEL)*/
-/* ========================================= */
-.cards-section {
-  padding: 80px 20px;
+/* ✨ Animação do brilho */
+@keyframes brilho {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Ajuste para o banner não sobrepor o menu */
+.nav {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  background: var(--cor-fundo);
+  color: var(--cor-texto-claro);
+  overflow: hidden;
+}
+
+
+.nav::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:  var(--cor-fundo);
+}
+
+.nav-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+   overflow: visible; 
+}
+
+.nav h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.nav p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* 💡 CARDS DE PALESTRANTES */
+.cards-section {
+  padding: 80px 80px;
+  text-align: center;
+  
 }
 
 .cards-section h2 {
@@ -63,7 +202,7 @@ body {
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .card img {
@@ -83,9 +222,8 @@ body {
   color: #555;
   margin-bottom: 15px;
 }
-
-.card button {
-  background: var(--cor-principal);
+.btn-compra {
+  background: var(--cor-terciaria);
   color: var(--cor-texto-claro);
   border: none;
   padding: 10px 20px;
@@ -94,11 +232,44 @@ body {
   cursor: pointer;
   transition: background var(--transicao);
   margin-bottom: 20px;
+  margin-top: 20px;
+
+}
+.btn-compra:hover {
+    background: var(--cor-principal);
+}
+
+.card button {
+ 
+  color: var(--cor-principal);
+  border-color: var(--cor-principal);
+  border-radius: 20px;
+  padding: 10px;
+ background-color: transparent;
+  font-size: 0.95rem;
+  cursor: pointer;
+ 
+  margin-bottom: 20px;
 }
 
 .card button:hover {
-  background: var(--cor-secundaria);
+  color: var(--cor-terciaria) ;
+   border-color: var(--cor-terciaria);
 }
+.cards-section h2{
+     background: linear-gradient(
+    1000deg,
+    #0f3b3a 0%, #1a6865 30%,
+    #219c98 50%,
+    #0f3b3a 70%, #1a6865 100%
+  );
+  margin-bottom: 10%;
+  color: transparent;
+   -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilho 4s linear infinite;
+}
+
 /* 🪩 MODAL */
 .modal {
   display: none;
@@ -146,11 +317,11 @@ body {
 
 /* 📱 RESPONSIVIDADE */
 @media (max-width: 768px) {
-  .banner h1 {
+  .nav h1 {
     font-size: 2.2rem;
   }
 
-  .banner p {
+  .nav p {
     font-size: 1rem;
   }
 
@@ -160,7 +331,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .banner {
+  .nav {
     height: 60vh;
   }
 
@@ -169,578 +340,285 @@ body {
   }
 }
 
-
-            /* Cabeçalho */
-            .container-cabecalho {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 16px;
-            }
-
-            .container-logo {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .logo {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                color: #0b1220;
-                font-weight: 800;
-                border-radius: 10px;
-                width: 48px;
-                height: 48px;
-                background: linear-gradient(135deg, #6ee7b7, #60a5fa);
-            }
-
-            .titulo-logo {
-                font-size: 1.25rem;
-                font-weight: 800;
-            }
-
-            .texto-logo {
-                font-size: .85rem;
-                color: #9fc3ff;
-            }
-
-          
-            /* Banner de aprensentação */
-            .banner-apresentacao {
-                position: relative;
-                margin-top: 18px;
-                box-shadow: 0 10px 30px rgb(2, 6, 23, .7);
-                border-radius: 14px;
-                overflow: hidden;
-            }
-
-            .banners-deslizantes {
-                display: flex;
-                width: 300%;
-
-                transition: transform .8s cubic-bezier(.2, .9, .2, 1);
-                /* Cubic-bezier - função que definie a curva cúbica de Bezier. Definida por 4 pontos - P0, P1, P2 e P3, início e fim da curva. Exemplo.: P0 é (0, 0) que representa tempo inicial e o estado inicial, e P3 é (1, 1) tempo final e estado final. Pode ser usada como função de cronometragem de animação e o tempo de transição de propriedade. Sintaxe.: cubic-bezier(x1,y1,x2,y2) que devem ser números de 0 a 1 (https://pt.stackoverflow.com/questions/346701/como-funciona-o-cubic-bezier-em-anima%C3%A7%C3%B5es-com-css). */
-            }
-
-            .slide {
-                min-width: 100%;
-                height: 56vh;
-                position: relative;
-            }
-        
-            .slide > div, img {
-                width: 100vw;
-                height: 60vh;
-            }
-
-
-            /* Indicadores do Banner */
-            .pontos {
-                display: flex;
-                position: absolute;
-                right: 18px;
-                bottom: 18px;
-                gap: 8px;
-            }
-
-            .ponto {
-                background-color: rgba( 255, 255, 255, .25 );
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                cursor: pointer;
-            }
-            .ponto.ativo {
-                background-image: linear-gradient( 90deg, #60a5fa, #7c3aed );
-            }
-
-            /* Eventos (campo dos cards) */
-            .campo-cards {
-                margin-top: 30px;
-            }
-
-            .campo-cards h2 {
-                text-align: center;
-                font-size: 30px;
-            }
-
-            .campo-cards p {
-                max-width: 900px;
-                margin-top: 40px;
-                margin-left: auto;
-                margin-right: auto;
-                padding-bottom: 40px;
-                color: #9ec6ff;
-                text-indent: 50px;
-                line-height: 1.6;
-                letter-spacing: 1.6px;
-                word-spacing: 5px;
-                text-align: justify;
-                font-size: 22px;
-            }
-
-            /* Cards */
-            .cards {
-                display: grid;
-                grid-template-columns: repeat( auto-fit, minmax( 260px, 1fr ) );
-                gap: 20px;
-            }
-
-            /* Cada Card */
-            .card {
-                background: linear-gradient( 180deg, rgba( 255, 255, 255, .02 ), rgba( 255, 255, 255, .01 ) );
-                border-radius: 12px;
-                border: 1px solid rgba( 255, 255, 255, .04 );
-                box-shadow: 0 8px 24px rgba( 2, 6, 23, .6 );
-                transition: transform .25s ease, box-shadow .25s ease;
-            }
-
-            .card:hover {
-                transform: scale(1.05);
-                box-shadow: 0 22px 44px rgba( 2, 6, 23, .7 );
-            }
-
-            .card img {
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-                display: block;
-            }
-
-            /* Corpo card */
-            .corpo-card {
-                padding: 15px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .corpo-card h3 {
-                margin-bottom: 10px;
-                font-size: 18.9px;
-            }
-
-            .cards .card:nth-child(2) h3 {
-                font-size: 17.9px;
-            }
-
-            .corpo-card p {
-                font-size: 17px;
-                color: #eee;
-                text-align: center;
-                text-indent: 0;
-                word-break: break-all;
-                word-spacing: 6px;
-            }
-
-            .btn-descricao {
-                padding: 8px 12px;
-                border-radius: 10px;
-                border: 0;
-                font-weight: 700;
-                color: #081224;
-                background: linear-gradient( 90deg, #60a5fa, #7c3aed );
-                align-self: center;
-                cursor: pointer;
-            }
-
-            .btn-descricao:hover {
-                background: linear-gradient( 90deg, #7c3aed, #60a5fa );
-            }
-
-            /* Intro - Sobre */
-            .intro {
-                background: linear-gradient( 180deg, rgba( 255, 255, 255, .02 ), transparent );
-                padding: 28px;
-                margin-top: 40px;
-                border-radius: 12px;
-                text-align: center;
-            }
-
-            .intro h2 {
-                color: #cfe8ff;
-                margin-top: 20px;
-                margin-bottom: 40px;
-                text-align: center;
-                font-size: 30px;
-            }
-
-            .intro p {
-                margin-top: 20px;
-                padding-bottom: 40px;
-                text-indent: 50px;
-                line-height: 1.6;
-                word-spacing: 5px;
-                letter-spacing: 1.6px;
-                text-align: justify;
-                font-size: 20px;
-            }
-
-            section:last-child.intro {
-                margin-top: 80px;
-            }
-
-            /* Rodapé */
-            footer > h3 {
-                text-align: center;
-            }
-
-            /* Modal */
-            .modal {
-                position: fixed;
-                inset: 0;
-                display: none;
-                align-items: center;
-                justify-content: center;
-                background: linear-gradient( 180deg, rgba( 2, 6, 23, .5 ), rgba( 2, 6, 23, .8 ) );
-                z-index: 60;
-            }
-
-            .modal.abrir {
-                display: flex;
-            }
-
-            .modal-card {
-                width: min( 900px, 100% ); /* A função "min()" em CSS é uma ferramenta poderosa para design responsivo, permitindo que você defina a largura (ou outras propriedades) de um elemento com o menor valor entre uma lista de opções fornecidas. Sintaxe.: min(valor1, valor2, ..., valuen), os valores fornecidos são avaliados aplicando o menor valor à largura do elemento permitindo a criação de layouts flexíveis que se adaptam a diferentes tamanhos de tela e restrições de conteúdo além de facilitar a responsividade. */
-                padding: 18px;
-                border: 1px solid rgba( 255, 255, 255, .05 );
-                box-shadow: 0 20px 60px rgba( 2, 6, 23, .8 );
-                border-radius: 14px;
-                background: linear-gradient( 180deg, #071124, #0b1220 );
-                color: #dbefff;
-            }
-
-            .modal-cabecalho {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin-bottom: 12px;
-            }
-
-            .modal-cabecalho div {
-                width: 100%;
-            }
-
-            .modal-cabecalho h3 {
-                text-align: center;
-                margin-bottom: 25px;
-            }
-
-             .btn-fechar {
-                cursor: pointer;
-                background-color: transparent;
-                border: 0;
-                color: #9fc3ff;
-                font-size: 1.4rem;
-                align-self: flex-start;
-            }
-
-            .modal-corpo {
-                display: grid;
-                grid-template-columns: 1fr 320px;
-            }
-
-            .modal-corpo img {
-                width: 100%;
-                height: 220px;
-                border-radius: 8px;
-                object-fit: cover;
-            }
-
-            .modal-lado {
-                background: linear-gradient( 180deg, rgba( 255, 255, 255, .02 ), transparent );
-                padding: 12px;
-                border-radius: 8px;
-            }
-
-            .modal-lado p {
-                padding: 5px;
-                text-align: justify;
-                text-indent: 15px;
-                word-spacing: 4px;
-                word-break: break-all;
-                line-height: 1.6;
-            }
-
-            .modal-lado div {
-                width: 100%;
-            }
-
-            .modal-lado .btn-inscricao {
-                display: block;
-                margin: 50px auto 0;
-                padding: 8px 12px;
-                border-radius: 10px;
-                border: 0;
-                font-weight: 700;
-                color: #081224;
-                background: linear-gradient( 90deg, #60a5fa, #7c3aed );
-                align-self: center;
-                cursor: pointer;
-            }
-
-            /* Responsividade */
-            @media ( max-width: 1145px ) {
-                .cards {
-                    display: grid;
-                    grid-template-columns: 420px 420px;
-                    gap: 20px;
-                    justify-content: center;
-                    align-items: center;
-                }
-                
-                .intro p {
-                    text-align-last: center;
-                }
-
-                .campo-cards p {
-                    text-indent: 0;
-                    text-align: center;
-                }
-            }
-
-           
-
-                .slide:nth-child(1) .banner-conteudo {
-                    text-align: center;
-                }
-
-                .slide:nth-child(2) .banner-conteudo {
-                    text-align: center;
-                }
-
-                .slide > div, img {
-                    width: 100vw;
-                    height: 45vh;
-                }
-
-                .cards {
-                    display: grid;
-                    grid-template-columns: 400px;
-                    gap: 20px;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .pontos {
-                    bottom: 8px;
-                }
-
-                .campo-cards p {
-                    text-indent: 0;
-                    text-align-last: center;
-                }
-            
-
-            @media ( max-width: 750px ) {
-                .modal-corpo {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    /* align-items: center; */
-                }
-
-                .modal-corpo img {
-                    display: block;
-                    width: 80%;
-                    height: 250px;
-                    margin: 0 auto 15px;
-                    text-align: center;
-                }
-
-                .modal-corpo .modal-lado {
-                    /* align-items: center; */
-                    margin-top: 25px;
-                    padding-top: 20px;
-                    width: 80%;
-                    margin: 0 auto;
-                }
-
-                .modal-corpo .modal-lado p {
-                    text-align-last: center;
-                    word-break: keep-all;
-                }
-
-                .modal-corpo .modal-lado .btn-inscricao {
-                    padding: 10px 14px;
-                }
-            }
-
-            @media ( max-width: 700px ) {
-                .container {
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                .container-cabecalho {
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 30px;
-                    margin-bottom: 25px;
-                }
-
-                .container-logo {
-                    width: 100%;
-                    justify-content: center;
-                }
-
-                .banner-apresentacao {
-                    width: 100%;
-                    height: 45vh;
-                    margin: 0 auto;
-                }
-
-                .banner-conteudo {
-                    width: 100%;
-                    padding: 10px;
-                    margin: 0 15px 10px 10px;
-                }
-
-                .slide > div, img {
-                    width: 100vw;
-                    height: 45vh;
-                }
-                .banner-imagem {
-                    object-fit: cover;
-                    padding: 100%;
-                    margin: 0;
-                }
-
-                .banner-sobreposicao {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    width: 100%;
-                    color: #dbe6f3dc;
-                }
-
-                .campo-cards p {
-                    text-align: center;
-                }
-            }
-
-            @media ( max-width: 685px ) {
-                .banner-apresentacao {
-                    width: 100%;
-                    height: 35vh;
-                    margin: 0 auto;
-                }
-                
-                .slide > div, img {
-                    width: 100vw;
-                    height: 35vh;
-                }
-            }
-
-            @media ( max-width: 550px ) {
-                .banner-apresentacao {
-                    width: 100%;
-                    height: 30vh;
-                    margin: 0 auto;
-                }
-                
-                .slide > div, img {
-                    width: 100vw;
-                    height: 30vh;
-                }
-            }
-            * ESTILOS PARA O CARROSSEL SWIPER */
-* ESTILOS PARA O CARROSSEL SWIPER */.mySwiper {
-
-width: 90%; 
-
-max-width: 1200px;
-
-margin: 0 auto;
-
-padding: 20px 0;
-
-}/* Estilo do Card individual (Dark/Neon) */.card.swiper-card {
-
-background: var(--cor-fundo-card); 
-border: 1px solid rgba(124, 58, 237, 0.2); 
-border-radius: 12px;
-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-padding: 25px 20px 10px;
-display: flex;
-flex-direction: column;
-align-items: center;
-min-height: 400px; 
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-}.card.swiper-card:hover {
-
-transform: scale(1.03);
-box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
-
-}/* Imagem do Palestrante (Circular) */.card.swiper-card img {
-
-width: 150px; 
-
-height: 150px;
-
-border-radius: 50%; 
-
-object-fit: cover;
-
-margin-bottom: 20px;
-
-border: 3px solid var(--cor-principal); 
-
-}.card.swiper-card h3 {
-
-color: var(--cor-principal); 
-
-margin: 15px 0 5px;
-
-font-size: 1.3rem;
-
-}.card.swiper-card p {
-
-color: var(--cor-texto-secundario); 
-
-margin-bottom: 20px;
-
-font-size: 0.95rem;
-
-}/* Botão "Ver mais" */.card.swiper-card button {
-
-background: linear-gradient(90deg, var(--cor-principal), var(--cor-secundaria));
-
-color: var(--cor-texto);
-
-border: none;
-
-padding: 10px 20px;
-
-border-radius: 25px;
-
-font-size: 0.95rem;
-
-cursor: pointer;
-
-transition: background 0.3s ease;
-
-margin-top: auto; /* Empurra o botão para baixo */
-
-}.card.swiper-card button:hover {
-
-opacity: 0.9;
-
-box-shadow: 0 0 10px rgba(124, 58, 237, 0.7);
-
-}/* Estilo dos elementos de navegação do Swiper */.swiper-button-next, .swiper-button-prev {
-
-color: var(--cor-principal) !important;
-
-/* Ajuste de tamanho para mobile, se necessário */
-
-transform: scale(0.8);
-
-}.swiper-pagination-bullet-active {
-
-background: var(--cor-principal) !important; 
-
+/* ===== Seção "Sobre" ===== */
+.secao-sobre {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* iguala a altura dos dois blocos */
+  gap: 30px;
+  padding: 150px;
+  flex-wrap: wrap; /* no celular, empilha */
+}
+.sobre-container h3{
+    color: var(--cor-terciaria);
+margin: 20px 0 10px 0;
+  line-height: 1;
+  white-space: nowrap; /* impede quebra entre “Sobre” e “nós” */
+  font-size: 1.8rem;
+}
+.sobre-container p{
+margin: 0;
+margin-top: 15%;
+  line-height: 1.6;
+  text-align: justify;
+  align-items: stretch;
+}
+
+/* ===== Blocos principais ===== */
+.sobre-container,
+.banner-apresentacao {
+  flex: 1 1 45%;
+  box-sizing: border-box;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgb(2 6 23 / 0.7);
+  overflow: hidden;
+}
+
+/* ===== Conteúdo da parte "Sobre" ===== */
+.sobre-container {
+  display: flex;
+  flex-direction: column;     /* Mantém o título e o texto empilhados */
+  align-items: flex-start;    /* Alinha à esquerda */
+  justify-content: flex-start;/* Alinha ao topo */
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgb(2 6 23 / 0.7);
+
+  margin-top: 15%;
+}
+.banner-apresentacao {
+  position: relative;
+  margin-left: auto;      /* alinha à direita */
+  margin-top: 15%; 
+  width: 45%;             /* metade da tela */
+  height: 90%;
+  border-radius: 14px;
+  overflow: hidden;
+ 
+
+}
+
+/* Slides container */
+.banners-deslizantes {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(.2, .9, .2, 1);
+  
+}
+
+/* Cada slide ocupa toda a largura do banner */
+.slide {
+  min-width: 100%;
+  height: 50vh;
+  position: relative;
+  
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.banner-sobreposicao {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px; /* adiciona espaço interno */
+  box-sizing: border-box;
+}
+
+.banner-conteudo {
+  color: #fff;
+  text-shadow: 1px 2px 4px rgba(0,0,0,0.8);
+  padding: 20px;
+  max-width: 90%;
+  z-index: 2;
+}
+
+.banner-conteudo h1,
+.banner-conteudo h2 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  margin-bottom: 10px;
+  line-height: 1.3;
+    position: relative;
+  margin-right: auto;      /* alinha à direita */
+  margin-top: 50%;
+  width: 60%;             /* metade da tela */
+  height: 90%;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .banner-conteudo h1,
+  .banner-conteudo h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Indicadores */
+.pontos {
+  display: flex;
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  gap: 8px;
+}
+
+.ponto {
+  background-color: rgba(255, 255, 255, 0.25);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ponto.ativo {
+  background-image:var(--cor-fundo);
+}
+ .hidden {
+    opacity: 0;
+      filter: blur(15px);
+      transform: translateX(-100%);
+      transition: all 2s;
+    }
+    .show {
+      opacity: 1;
+      filter: blur(0);
+       transform: translateX(0);
+      transition: all 2s;
+    }
+
+footer {
+  background: var(--cor-fundo);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;                 /* coloca os blocos lado a lado */
+  flex-wrap: wrap;               /* permite quebrar em telas pequenas */
+  justify-content: space-around; /* espaça os blocos igualmente */
+  align-items: flex-start;    
+  margin-top: 20%;   /* alinha pelo topo */
+}
+
+.footer-content {
+  margin: 10px 20px;
+  text-align: left;
+  flex: 1;                       /* cada coluna ocupa o mesmo espaço */
+  min-width: 180px;  
+  color: white            /* evita colapsar em telas pequenas */
+}
+
+.logo-footer {
+  flex: 1;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.ArtCabeceiras {
+  height: 200px;
+  margin-bottom: 20px;
+
+}
+
+.contatos-footer {
+  flex: 1;
+  text-align: left;
+  min-width: 200px;
+}
+
+.social-icons  {
+  width: 100%;
+  text-align: center;
+  margin-right: 20px;
+  padding: 20px;
+  color: #fff ;
+}
+
+
+.social-icons a:hover {
+  color: var(--cor-principal);
+}
+
+/* Responsivo — empilha no celular */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-content,
+  .contatos-footer {
+    text-align: center;
+  }
+}
+
+   #back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background: var(--cor-principal);
+  color: var(--cor-fundo);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--cor-principal);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+#back-to-top:hover {
+  background: transparent;
+  color: var(--cor-neon-azul);
+  transform: scale(1.1);
+}
+i {
+  display: block;
+  clear: both;
+  font-size: 30px;
+  color: #fff;
+  margin: 20px 10px;
+  transition: 0.3s;
+}
+.lugarClass {
+  margin-top: 5%;
+  text-align: left;
+  color: white;
+}
+strong {
+  font-size: 1.5rem;
+  text-align: left;
+  color: var(--cor-principal);
+}
+.verificado {
+  margin-top: 10%;
+  text-align: center;
+  color: white;
+  font-size: 0.9rem;
+}
+.contato, .lugar {
+  text-align: left;
+  margin-right: 5%;
+  margin-left: 0%;
+  margin-top: 5%;
+  background-color: #1a6865;
+  border-radius: 15px;
+ padding: 40px;
+ 
+}
+.contato {
+  padding-bottom: 4%;
+  padding-right: 20%;
+}
+.lugar {
+ padding-bottom: 10%;
+ padding-right: 15%;
 }

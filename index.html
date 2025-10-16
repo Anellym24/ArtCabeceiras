@@ -3,133 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evento Tech</title>
+  <title> ArtCabeceiras</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
   <!-- 🌟 BANNER -->
-  <section class="banner">
-     <section class="banner-apresentacao">
-                <div class="banners-deslizantes" id="slides">
-                    <div class="slide">
-                        <div>
-                            <img src="images/Luna.jpg" class="banner-imagem">
-                        </div>
-                        <div class="banner-sobreposicao">
-                            <div class="banner-conteudo">
-                                <h1>TechSphere - O epicentro da inovação</h1>
-                                <p>Reúna-se com líderes, visionários e desenvolvedores em um encontro que concentra conferências, workshops e maratonas tecnológicas.</p>
-                            </div>
-                        </div>
-                    </div>
+  <header>
+   
+  <section class="nav">
+    <nav class="menu">     
+      <a href="#sobrenos" >Sobre nós</a>
+      <a href="#modelos" >Modelos</a>
+      <a href="#faleConosco" >Fale Conosco</a>
+      <a href="login.html" class="entrar">Entrar</a>
+     
+    </nav>
 
-                    <div class="slide">
-                        <div>
-                            <img src="images/ayla.jpg" class="banner-imagem">
-                        </div>
-                        <div class="banner-sobreposicao">
-                            <div class="banner-conteudo">
-                                <h2>Hands-ons, networking e oportunidades</h2>
-                                <p>Workshops práticos, feiras de startups e áreas de recrutamento para acelerar carreiras e negócios.</p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="nav-content">
+       <section class="hidden">
+      <h1 class="logo">
+  <span class="logo-art">Art </span>
+  <span class="logo-texto">CABECEIRAS RJ</span>
+</h1>
+      <p>Mais do que um detalhe: o abraço do seu descanso.</p>
+    </div>
+  </section>
+   </section>
+</header> 
+ 
 
-                    <div class="slide">
-                        <div>
-                            <img src="images/Carol.jpg"class="banner-imagem">
-                        </div>
-                        <div class="banner-sobreposicao">
-                            <div class="banner-conteudo">
-                                <h2>Inovação que transforma</h2>
-                                <p>De IA a Web3 — uma programação diversificada para inspirar e capacitar.</p>
-                            </div>
-                        </div>
-                    </div>
+
+<section class="hidden">
+            <div class="secao-sobre">
+  <div class="sobre-container">
+    
+      <h3>Sobre nós</h3>
+     
+      <p>Na ArtCabeceiras, transformamos ideias em peças únicas para o seu quarto.
+         Com atenção aos detalhes e design personalizado, criamos cabeceiras que unem beleza,
+          conforto e estilo, tornando cada ambiente mais acolhedor e sofisticado.</p>
+    
+  </div>
+
+
+
+  <section class="banner-apresentacao" id="sobrenos">
+    <div class="banners-deslizantes" id="slides">
+      <div class="slide">
+        <div>
+          <img src="images/ayla.jpg" alt="Cabeceira estofada bege.">
+        </div>
+        
+      </div>
+
+      <div class="slide">
+        <div>
+          <img src="images/Carol.jpg" alt="Cabeceira em ambiente moderno.">
+        </div>
+      
+      </div>
+
+      <div class="slide">
+        <div>
+          <img src="images/Myllena2.jpg" alt="Cabeceira minimalista.">
+        </div>
+        
+      </div>
+      <div class="slide">
+        <div>
+          <img src="images/Luna.jpg" alt="Cabeceira minimalista.">
+        </div>
+        
+      </div>
+      <div class="slide">
+        <div>
+          <img src="images/Giovana.jpg" alt="Cabeceira minimalista.">
+        </div>
+        
+      </div>
+    
+     <div class="slide">
+        <div>
+          <img src="images/Marina.jpg" alt="Cabeceira minimalista.">
+        </div>
+         </div>
+          <div class="slide">
+        <div>
+          <img src="images/Rafaelly.jpg" alt="Cabeceira minimalista.">
+        </div>
+         </div>
+          <div class="slide">
+        <div>
+          <img src="images/Rebecca.jpg" alt="Cabeceira minimalista.">
+        </div>
+         </div>
+    </div>
+  <div class="pontos" id="pontos">
+   
+  </div>
+   </section>
+</section>
+          
+<section class="hidden">
+  <!-- 💬 CARDS DE CABECEIRAS -->
+  <section class="cards-section" id="modelos">
+    <h2>Nossos Modelos</h2>
+    <div class="cards-container">
+
+      <div class="card">
+        <img src="images/ayla.jpg" alt="Palestrante 1">
+        <h3>Modelo Ayla</h3>
+        <button onclick="abrirModal('modal1')">Ver mais</button>
+      </div>
+
+      <div class="card">
+        <img src="images/Carol.jpg" alt="Palestrante 2">
+        <h3>Modelo Carol</h3>
+        <button onclick="abrirModal('modal2')">Ver mais</button>
+      </div>
+
+      <div class="card">
+        <img src="images/Giovana.jpg" alt="Palestrante 3">
+        <h3>Modelo Giovana</h3>
+        <button onclick="abrirModal('modal3')">Ver mais</button>
+      </div>
+
+      <div class="card">
+        <img src="images/Luna.jpg" alt="Palestrante 3">
+        <h3>Modelo Luna</h3>
+        <button onclick="abrirModal('modal4')">Ver mais</button>
+      </div>
+
+      <div class="card">
+        <img src="images/Rafaelly.jpg" alt="Palestrante 3">
+        <h3>Modelo Rafaelly</h3>
+        <button onclick="abrirModal('modal5')">Ver mais</button>
+      </div>
+
+      <div class="card">
+        <img src="images/Rebecca.jpg" alt="Palestrante 3">
+        <h3>Modelo Rebecca</h3>
+        <button onclick="abrirModal('modal6')">Ver mais</button>
+      </div>
+      
+      <div class="card">
+        <img src="images/Marina.jpg" alt="Palestrante 3">
+        <h3>Modelo Marina</h3>
+        <button onclick="abrirModal('modal7')">Ver mais</button>
+      </div>
+
+      <div class="card">
+        <img src="images/Myllena2.jpg" alt="Palestrante 3">
+        <h3>Modelo Myllena</h3>
+        <button onclick="abrirModal('modal8')">Ver mais</button>
+      </div>
+
+    </div>
+    </section>
+    
+     <div id="modal1" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-1">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal1')">&times;</span>
+                    <h2 id="modal-titulo-1">Ayla</h2>
+                    <p>Com design geométrico e sofisticado, a cabeceira Ayla apresenta módulos verticais e horizontais em relevo, criando um visual moderno e dinâmico. A parte inferior lisa traz equilíbrio e elegância ao conjunto, perfeita para ambientes contemporâneos.</p>
+                     <button class="btn-compra">Escolha a sua</button>
                 </div>
-                <div class="pontos" id="pontos" aria-hidden="false"></div>
-            </section>
+            </div>
+            <div id="modal2" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-2">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal2')">&times;</span>
+                    <h2 id="modal-titulo-2">Carol</h2>
+                    <p>A cabeceira Carol se destaca pelo estilo moderno e simétrico. Seus módulos quadrados, dispostos em duas fileiras, proporcionam uma estética clean e acolhedora, ideal para quem busca um toque de sofisticação e harmonia no quarto.</p>
+                 <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+            <div id="modal3" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-3">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal3')">&times;</span>
+                    <h2 id="modal-titulo-3">Giovana</h2>
+                    <p>Minimalista e elegante, a Giovana é composta por dois amplos painéis horizontais sobrepostos que criam um visual contínuo e suave. Um modelo perfeito para quem aprecia linhas simples e design contemporâneo.</p>
+                <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+            <div id="modal4" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-4">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal4')">&times;</span>
+                    <h2 id="modal-titulo-4">Luna</h2>
+                    <p>Com dois grandes módulos horizontais, a Luna combina suavidade e imponência. Seu design transmite conforto e modernidade, valorizando o ambiente com um toque de estilo discreto e sofisticado.</p>
+                <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+            <div id="modal5" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-5">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal5')">&times;</span>
+                    <h2 id="modal-titulo-5">Rafaelly</h2>
+                    <p>A Rafaelly traz um visual imponente com três módulos horizontais sobrepostos. O destaque fica para o painel superior, levemente saliente, que adiciona profundidade e personalidade ao design.</p>
+                 <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+
+            <div id="modal6" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-6">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal6')">&times;</span>
+                    <h2 id="modal-titulo-6">Rebecca</h2>
+                    <p>Marcada por linhas verticais e ritmo visual equilibrado, a cabeceira Rece oferece um design elegante e atemporal. Os módulos estreitos criam uma sensação de altura e requinte, ideal para quartos clássicos ou modernos.</p>
+                 <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+
+             <div id="modal7" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-7">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal7')">&times;</span>
+                    <h2 id="modal-titulo-6">Marina</h2>
+                    <p>A cabeceira arina encanta pelo conforto visual de suas faixas horizontais acolchoadas. Seu design contínuo e macio proporciona um toque aconchegante e sofisticado ao ambiente.</p>
+                 <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+
+             <div id="modal8" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-8">
+                <div class="modal-content">
+                    <span class="close" onclick="fecharModal('modal8')">&times;</span>
+                    <h2 id="modal-titulo-6">Myllena</h2>
+                    <p>Com módulos verticais alongados na parte superior e base lisa, o modelo Myllena apresenta um equilíbrio perfeito entre modernidade e delicadeza. Um modelo versátil que harmoniza com diferentes estilos de decoração.</p>
+                 <button class="btn-compra">Escolha a sua</button>
+                  </div>
+            </div>
+
   </section>
 
-  <!-- 💬 CARDS DE PALESTRANTES -->
- <section class="cards-section">
-    <h2>Palestrantes</h2>
 
-        <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
 
-                        <div class="swiper-slide">
-                <div class="card swiper-card">
-                    <img src="images/Beatriz_Lima.jpg" alt="Beatriz Lima">
-                    <h3>Beatriz Lima</h3>
-                    <p>Gestora de Projetos</p>
-                    <button onclick="abrirModal('modal1')">Ver mais</button>
-                </div>
-            </div>
-             
-                        <div class="swiper-slide">
-                <div class="card swiper-card">
-                    <img src="images/Rafael_Torres.jpg" alt="Rafael Torres">
-                    <h3>Rafael Torres</h3>
-                    <p>Arquiteto de Soluções</p>
-                    <button onclick="abrirModal('modal2')">Ver mais</button>
-                </div>
-            </div>
-            
-                        <div class="swiper-slide">
-                <div class="card swiper-card">
-                    <img src="images/Maria_Oliveira.jpg" alt="Maria Oliveira">
-                    <h3>Maria Oliveira</h3>
-                    <p>Especialista em UX</p>
-                    <button onclick="abrirModal('modal3')">Ver mais</button>
-                </div>
-            </div>
-            
-                        <div class="swiper-slide">
-                <div class="card swiper-card">
-                    <img src="images/Joao_Santos.jpg" alt="João Santos">
-                    <h3>João Santos</h3>
-                    <p>Engenheiro de Software</p>
-                    <button onclick="abrirModal('modal1')">Ver mais</button>
-                </div>
-            </div>
+ <footer class="footer" id="contato">
+            <div class="logo-footer">                           
+                    <img src="images/Logo_ArtCab.png" class="ArtCabeceiras">
+                
+            </div>
+            <div class="contato"  id="faleConosco">
+                <p class="Titulo"><strong>CONTATO</strong></p>
+                <a href="https://wa.me/5521994263274" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+               <br>
+                 <a href="https://instagram.com/seuperfil" target="_blank">
+  <i class="fa-brands fa-instagram"></i>
+</a>
+<br>
+<a href="https://www.tiktok.com/@seuperfil" target="_blank">
+  <i class="fa-brands fa-tiktok"></i>
+</a>
+                
+    
+            </div>
+<div class="lugar">
+  <strong>ONDE ESTAMOS? </strong></p>
+<P class="lugarClass">Acari- Rua São Paulo 16 Fundos</P>
+<br>
+<P class="lugarClass">Cep: 21531610 </P>
+<br>
+<P class="lugarClass">CNPJ: 31551514 </P>
+</div>
+           
+          
+           <br> 
+           
+            <p class="verificado">&copy; 2025 ArtCabeciras, conectando o futuro da tecnologia no Brasil</p>
+        </footer>
 
-        </div>
+ <button id="back-to-top" title="Voltar ao topo">↑</button>
 
-                <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-    </div>
-</section>
-
-  <!-- 🪩 MODAIS -->
-  <div class="modal" id="modal1">
-    <div class="modal-content">
-      <span class="fechar" onclick="fecharModal('modal1')">&times;</span>
-      <h3>Maria Oliveira</h3>
-      <p>UX Designer com mais de 10 anos de experiência no mercado de tecnologia...</p>
-    </div>
-  </div>
-
-  <div class="modal" id="modal2">
-    <div class="modal-content">
-      <span class="fechar" onclick="fecharModal('modal2')">&times;</span>
-      <h3>João Silva</h3>
-      <p>Desenvolvedor Full Stack apaixonado por criar soluções inovadoras...</p>
-    </div>
-  </div>
-
-  <div class="modal" id="modal3">
-    <div class="modal-content">
-      <span class="fechar" onclick="fecharModal('modal3')">&times;</span>
-      <h3>Ana Souza</h3>
-      <p>Engenheira de Software com foco em IA e automação...</p>
-    </div>
-  </div>
-
+    
+<script src="js/script.js"></script>  
 </body>
-<script src="js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </html>
