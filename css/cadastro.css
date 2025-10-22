@@ -91,21 +91,21 @@ body {
   align-items: center; /* alinha verticalmente */
   justify-content: center;
   margin-bottom: 15px;
-  gap: 10px; /* espaço entre label e input */
+  gap: 50px; /* espaço entre label e input */
 }
 
 .input-group label {
-  width: 80px; /* define largura fixa pros labels */
+  width: 100px; /* define largura fixa pros labels */
   text-align: right;
   font-weight: 500;
   color: #333;
 }
 
 .input-group input {
-  padding: 8px 10px;
+  padding: 10px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 220px;
+  width: 300px;
 }
 
 button {
